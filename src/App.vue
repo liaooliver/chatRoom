@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="sideBar"></div>
+    <SideBar></SideBar>
     <div class="chatRoom">
         <Title></Title>
       <div class="content">
@@ -11,11 +11,14 @@
 </template>
 
 <script>
+import SideBar from './components/sideBar/SideBar.vue';
 import Title from './components/Title.vue';
+
 
 export default {
   components: {
     Title,
+    SideBar,
   },
 };
 </script>

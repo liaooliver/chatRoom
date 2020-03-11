@@ -1,9 +1,9 @@
 <template>
     <div class="title">
         <div class="title__header">
-            <div class="title__header--logo">Cheeri Chat</div>
-            <Button>中文</Button>
-            <Button>English</Button>
+            <div class="title__header--logo">Cherri Chat</div>
+            <Button :actived="true">中文</Button>
+            <Button :actived="false">English</Button>
         </div>
         <div class="title__user">
             <Avatar />

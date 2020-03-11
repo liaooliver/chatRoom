@@ -1,0 +1,42 @@
+@import '../variable.scss';
+.sideBar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.3);
+    &__title {
+        height: 60px;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        &--name{
+            color: #888;
+            line-height: 40px;
+            font-size: 1.2em;
+            border-bottom: 1px solid $secondColor;
+        }
+    }
+
+    &__items{}
+    &__item{
+        height: 100px;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        &--style{
+            border-bottom: 1px solid $secondColor;
+        }
+
+    }
+    &__person{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        &--name{
+            font-size: 1.2em;
+        }
+        &--content{
+            font-size: 1.2em;
+        }
+    }
+}

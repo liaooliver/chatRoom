@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <h1>HOME</h1>
+    <div class="home__container">
+      <img src="../assets/img/img_default.png" alt="">
+      <p>開始使用Cherri Chat!</p>
+    </div>
   </div>
 </template>
 
@@ -9,3 +12,7 @@ export default {
   name: 'Home',
 };
 </script>
+
+<style lang="scss">
+@import '../assets/styles/main.scss';
+</style>

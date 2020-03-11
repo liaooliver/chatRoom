@@ -1,20 +1,34 @@
 <template>
-    <button type="submit">
+    <button type="submit" :class="{'active':actived}">
         <slot></slot>
     </button>
 </template>
 
 <script>
 export default {
+  props: {
+    actived: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '../../assets/styles/variable.scss';
 button{
-    padding: 5px 20px;
+    height: 28px;
+    color: #fff;
+    padding: 0px 20px;
     border-radius: 25px;
     border-color: #fff;
     background-color: transparent;
-    color: #fff
+    margin-left: 8px;
+    &.active{
+      color: $mainColor;
+      background-color: #fff;
+    }
 }
 </style>
