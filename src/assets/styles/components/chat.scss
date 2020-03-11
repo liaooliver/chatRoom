@@ -1,0 +1,21 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &__rowHeight {
+        height: 100px;
+    }
+    &__title {
+        background-color: darkslategray;
+    }
+    &__message {
+        background-color: dodgerblue;
+    }
+    &__content {
+        flex-grow: 1;
+    }
+    &__add {
+        border-top: 1px solid #000;
+        background-color: firebrick;
+    }
+}
