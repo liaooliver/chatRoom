@@ -1,26 +1,16 @@
 <template>
   <ul class="sideBar__items">
-    <li class="sideBar__item sideBar__item--style">
-        <Avatar :showList="true"></Avatar>
+    <router-link tag="li" class="sideBar__item sideBar__item--style"
+    v-for="item in firendsList"
+    :key="item.index" :to="`/chat/${item.index}`">
+        <Avatar
+        :image="item.imgUrl"
+        :showList="true"></Avatar>
         <div class="sideBar__person">
-            <p class="sideBar__person--name">保羅</p>
-            <p class="sideBar__person--content">大家好，我是保羅～</p>
+            <p class="sideBar__person--name">{{ item.name }}</p>
+            <p class="sideBar__person--content">{{ item.log }}</p>
         </div>
-    </li>
-    <li class="sideBar__item sideBar__item--style">
-        <Avatar :showList="true"></Avatar>
-        <div class="sideBar__person">
-            <p class="sideBar__person--name">保羅</p>
-            <p class="sideBar__person--content">大家好，我是保羅～</p>
-        </div>
-    </li>
-    <li class="sideBar__item sideBar__item--style">
-        <Avatar :showList="true"></Avatar>
-        <div class="sideBar__person">
-            <p class="sideBar__person--name">保羅</p>
-            <p class="sideBar__person--content">大家好，我是保羅～</p>
-        </div>
-    </li>
+    </router-link>
   </ul>
 </template>
 
@@ -30,6 +20,12 @@ import Avatar from '../parts/Avatar.vue';
 export default {
   components: {
     Avatar,
+  },
+  props: {
+    firendsList: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>

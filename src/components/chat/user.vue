@@ -1,8 +1,8 @@
 <template>
     <div class="chat__user chat__rowHeight">
         <span class="chat__username">
-            <Avatar :showUser='true'></Avatar>
-            <p class="chat__username--name">保羅</p>
+            <Avatar :showUser='true' :image='current.imgUrl'></Avatar>
+            <p class="chat__username--name">{{ current.name }}</p>
         </span>
         <span
         @click="active('search')"
@@ -26,12 +26,19 @@ export default {
   components: {
     Avatar,
   },
+  props: {
+    current: {
+      type: Object,
+      required: false,
+    },
+  },
   data() {
     return {
       actived: {
         search: false,
         note: false,
       },
+      // imageUrl: 'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Prescription02&hairColor=BlondeGolden&facialHairType=BeardMedium&facialHairColor=Black&clotheType=ShirtCrewNeck&clotheColor=White&eyeType=Happy&eyebrowType=UpDownNatural&mouthType=Tongue&skinColor=Brown',
     };
   },
   methods: {

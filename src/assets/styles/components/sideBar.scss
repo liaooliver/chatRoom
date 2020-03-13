@@ -1,6 +1,7 @@
 @import '../variable.scss';
 .sideBar {
     position: absolute;
+    z-index: 5;
     top: 0;
     bottom: 0;
     width: 20%;
@@ -17,7 +18,6 @@
         }
     }
 
-    &__items{}
     &__item{
         height: 100px;
         padding: 20px;
@@ -25,6 +25,10 @@
         display: flex;
         &--style{
             border-bottom: 1px solid $secondColor;
+            cursor: pointer;
+            &:hover {
+                background-color: $mainBg;
+            }
         }
 
     }
@@ -40,4 +44,5 @@
             font-size: 0.9em;
         }
     }
+
 }

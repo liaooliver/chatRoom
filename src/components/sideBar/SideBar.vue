@@ -1,7 +1,7 @@
 <template>
   <div class="sideBar">
-      <Title :number=0 />
-      <Items />
+      <Title :number="firendsList" />
+      <Items :firendsList="firendsList" />
   </div>
 </template>
 
@@ -13,6 +13,14 @@ export default {
   components: {
     Title,
     Items,
+  },
+  data() {
+    return {
+      firendsList: null,
+    };
+  },
+  created() {
+    this.firendsList = this.$store.state.firendsList;
   },
 };
 </script>

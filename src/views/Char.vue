@@ -1,34 +1,40 @@
 <template>
     <div class="chat">
-        <User @openSearch="openSearch($event)" />
-        <div class="chat__message chat__rowHeight"
-        :class="{'chat__hidden':isHiddenSearch}">
-          <input type="text" name="" id="" autofocus placeholder="搜尋">
-          <span>1則相符訊息</span>
-          <span>
-            <img width="26px" src="../assets/img/ic_close1.png" alt="close" srcset="">
-          </span>
-        </div>
-        <div class="chat__content"></div>
-        <div class="chat__add chat__rowHeight">
-          <input type="text" name="" id="" autofocus placeholder="輸入訊息...">
-          <span>
-            <img width="36px" src="../assets/img/ic_sent.png" alt="sent" srcset="">
-          </span>
-        </div>
+        <User
+        @openSearch="openSearch($event)"
+        :current="currentDialogue[0]" />
+        <Search :isHiddenSearch="isHiddenSearch"></Search>
+        <Dialogue :dialogue="currentDialogue[0].dialogue"></Dialogue>
+        <Send></Send>
     </div>
 </template>
 
 <script>
-import User from '../components/chat/user.vue';
+import User from '../components/chat/User.vue';
+import Search from '../components/chat/Search.vue';
+import Dialogue from '../components/chat/Dialogue.vue';
+import Send from '../components/chat/Send.vue';
 
 export default {
   components: {
     User,
+    Search,
+    Dialogue,
+    Send,
+  },
+  watch: {
+    '$route.params.user': {
+      handler(index) {
+        this.currentDialogue = this.$store.getters.filterFirends(index);
+      },
+      deep: true,
+      immediate: true,
+    },
   },
   data() {
     return {
-      isHiddenSearch: false,
+      isHiddenSearch: true,
+      currentDialogue: null,
     };
   },
   methods: {

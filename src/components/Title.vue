@@ -1,7 +1,7 @@
 <template>
     <div class="title">
         <div class="title__header">
-            <div class="title__header--logo">Cherri Chat</div>
+            <router-link tag="p" to="/" class="title__header--logo">Cherri Chat</router-link>
             <Button
             @toggleLang="toggleLang($event)"
             :actived="this.currentLang.tw">中文</Button>
@@ -10,7 +10,7 @@
             :actived="this.currentLang.en">English</Button>
         </div>
         <div class="title__user">
-            <Avatar />
+            <Avatar :image="imageUrl" />
             <p class="title__user--name">潔西卡</p>
         </div>
     </div>
@@ -27,6 +27,7 @@ export default {
   },
   data() {
     return {
+      imageUrl: 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairBun&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=White&eyeType=Close&eyebrowType=UpDownNatural&mouthType=Default&skinColor=Tanned',
       currentLang: {
         tw: {
           name: 'tw',
@@ -44,6 +45,7 @@ export default {
       this.currentLang.tw.actived = false;
       this.currentLang.en.actived = false;
       this.currentLang[value.name].actived = true;
+      this.$i18n.locale = value.name;
     },
   },
 };

@@ -10,7 +10,6 @@
     }
 
     &__user {
-        // background-color: darkslategray;
         position: relative;
         z-index: 2;
         box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
@@ -49,9 +48,12 @@
             margin-left: 10px;
         }
     }
-    &__message {
+    &__search {
         width: 100%;
+        border: 0px;
+        border-color: transparent;
         border-bottom: 1px solid $secondColor;
+        background-color: #fff;
         position: absolute;
         left: 0;
         top: 80px;
@@ -81,8 +83,27 @@
         visibility: hidden;
         border-color: transparent;
     }
-    &__content {
+    &__dialogue {
         flex-grow: 1;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        
+    }
+    &__message {
+        padding: 10px 25px;
+        &--style{
+            letter-spacing: 1px;
+            color: #fff;
+            border-radius: 30px;
+            background-color: $mainColor;
+            font-size: 1.2em;
+        }
+        & ~ div{
+            margin-top: 5px;
+        }
     }
     &__add {
         border-top: 1px solid $secondColor;
@@ -100,7 +121,7 @@
 
         span{
             margin-left: 20px;
+            cursor: pointer;
         }
-        // background-color: firebrick;
     }
 }

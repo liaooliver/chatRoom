@@ -1,0 +1,29 @@
+@import '../variable.scss';
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    img{
+      width: 48px;
+      height: 48px;
+    }
+    &.list{
+      width: 56px;
+      height: 56px;
+      border: 1px solid;
+      border-color: $secondColor;
+      img{
+        width: 56px;
+        height: 56px;
+      }
+    }
+    &.user{
+      border: 1px solid;
+      border-color: $secondColor;
+    }
+}

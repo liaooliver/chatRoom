@@ -1,6 +1,6 @@
 <template>
     <span class="avatar" :class="{'list':this.showList, 'user':this.showUser}">
-        <img src="../../assets/img/user.png" alt="">
+        <img :src="image" alt="">
     </span>
 </template>
 
@@ -17,32 +17,14 @@ export default {
       required: false,
       default: false,
     },
+    image: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 8px;
-    img{
-        width: 60%;
-    }
-    &.list{
-      width: 56px;
-      height: 56px;
-      border: 1px solid;
-      border-color: rgb(66, 223, 190);
-    }
-    &.user{
-      border: 1px solid;
-      border-color: rgb(66, 223, 190);
-    }
-}
+@import '../../assets/styles/components/avatar.scss';
 </style>

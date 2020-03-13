@@ -1,6 +1,6 @@
 <template>
   <div class="sideBar__title sideBar__title--name">
-    好友列表({{this.number}})
+    {{ $t("_friends") }}({{this.number.length}})
   </div>
 </template>
 
@@ -8,9 +8,8 @@
 export default {
   props: {
     number: {
-      type: Number,
+      type: Array,
       required: true,
-      default: 0,
     },
   },
 };
