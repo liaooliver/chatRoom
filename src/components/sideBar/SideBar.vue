@@ -1,6 +1,6 @@
 <template>
   <div class="sideBar">
-      <Title />
+      <Title :number=0 />
       <Items />
   </div>
 </template>

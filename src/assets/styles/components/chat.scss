@@ -1,21 +1,106 @@
+@import '../variable.scss';
 .chat {
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
     &__rowHeight {
-        height: 100px;
+        height: 80px;
+        transition: 0.5s;
     }
-    &__title {
-        background-color: darkslategray;
+
+    &__user {
+        // background-color: darkslategray;
+        position: relative;
+        z-index: 2;
+        box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        padding: 0px 25px;
+    }
+    &__username{
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        &--name{
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+    }
+    &__icon{
+        width: 48px;
+        height: 48px;
+        background-color: transparent;
+        display: inline-block;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        img{
+            width: 36px;
+        }
+        &--active{
+            background-color: #eee;
+            border-color: #ddd;
+        }
+        & + span{
+            margin-left: 10px;
+        }
     }
     &__message {
-        background-color: dodgerblue;
+        width: 100%;
+        border-bottom: 1px solid $secondColor;
+        position: absolute;
+        left: 0;
+        top: 80px;
+        z-index: 1;
+        visibility: visible;
+        padding: 20px 25px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        input {
+            height: 100%;
+            flex-grow: 1;
+            margin-right: auto;
+            color: $mainColor;
+            border: none;
+        }
+
+        span{
+            margin-left: 20px;
+        }
+    }
+    &__hidden {
+        top: 0;
+        transition: 0.5s;
+        opacity: 0;
+        z-index: 1;
+        visibility: hidden;
+        border-color: transparent;
     }
     &__content {
         flex-grow: 1;
     }
     &__add {
-        border-top: 1px solid #000;
-        background-color: firebrick;
+        border-top: 1px solid $secondColor;
+        padding: 20px 25px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        input {
+            height: 100%;
+            flex-grow: 1;
+            margin-right: auto;
+            color: $mainColor;
+            border: none;
+        }
+
+        span{
+            margin-left: 20px;
+        }
+        // background-color: firebrick;
     }
 }

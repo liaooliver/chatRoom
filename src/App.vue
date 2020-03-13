@@ -2,7 +2,7 @@
   <div id="app">
     <SideBar></SideBar>
     <div class="chatRoom">
-        <Title></Title>
+      <Title></Title>
       <div class="content">
         <router-view/>
       </div>
