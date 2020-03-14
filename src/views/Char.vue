@@ -3,8 +3,12 @@
         <User
         @openSearch="openSearch($event)"
         :current="currentDialogue[0]" />
-        <Search :isHiddenSearch="isHiddenSearch"></Search>
-        <Dialogue :dialogue="currentDialogue[0].dialogue"></Dialogue>
+        <Search
+        @filterKeyword="filterKeyword($event)"
+        @initDialogue="initDialogue($route.params.user)"
+        :counterResult="counterResult"
+        :isHiddenSearch="isHiddenSearch"></Search>
+        <Dialogue :dialogue="dialogue"></Dialogue>
         <Send></Send>
     </div>
 </template>
@@ -25,21 +29,39 @@ export default {
   watch: {
     '$route.params.user': {
       handler(index) {
-        this.currentDialogue = this.$store.getters.filterFirends(index);
+        this.initDialogue(index);
       },
       deep: true,
       immediate: true,
+    },
+  },
+  computed: {
+    counterResult() {
+      return this.$store.getters.counterResult();
     },
   },
   data() {
     return {
       isHiddenSearch: true,
       currentDialogue: null,
+      dialogue: null,
     };
   },
   methods: {
     openSearch(event) {
       this.isHiddenSearch = !event;
+    },
+    initDialogue(index) {
+      console.log('執行了');
+      this.$store.dispatch('resetCounter');
+      this.currentDialogue = this.$store.getters.filterFirends(index);
+      this.dialogue = this.currentDialogue[0].dialogue;
+    },
+    filterKeyword(event) {
+      this.$store.dispatch('resetCounter');
+      const index = 0;
+      const filter = this.$store.getters.filterString(event, this.$route.params.user);
+      this.dialogue = filter[index];
     },
   },
 };

@@ -3,7 +3,8 @@
         <div
         v-for="(log, index) in dialogue"
         :key="index"
-        class="chat__message chat__message--style">{{ log }}</div>
+        v-html="log"
+        class="chat__message chat__message--style"></div>
     </div>
 </template>
 

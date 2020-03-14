@@ -90,7 +90,10 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-end;
-        
+        &--highlight {
+            background-color: yellow;
+            color: black;
+        }
     }
     &__message {
         padding: 10px 25px;

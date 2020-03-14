@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    count: 0,
     firendsList: [
       {
         index: 1,
@@ -45,13 +46,36 @@ export default new Vuex.Store({
     ],
   },
   mutations: {
+    resetCounter(state) {
+      state.count = 0;
+    },
   },
   actions: {
+    resetCounter(context) {
+      context.commit('resetCounter');
+    },
   },
   getters: {
     filterFirends: (state) => (index) => state.firendsList.filter(
       (item) => item.index === parseInt(index, 10),
     ),
+    filterString: (state, getters) => (keyword, index) => state.firendsList.filter(
+      (item) => item.index === parseInt(index, 10),
+    ).map((item) => item.dialogue.map((dia) => {
+      if (keyword === '') return dia;
+      const regex = new RegExp(keyword, 'i');
+      const match = dia.match(regex);
+      if (match) {
+        getters.counterResult(match);
+        console.log('match:', match);
+        return dia.replace(regex, `<span class='chat__dialogue--highlight'>${match[0]}</span>`);
+      }
+      return dia;
+    })),
+    counterResult: (state) => (match) => {
+      if (match) state.count += 1;
+      return state.count;
+    },
   },
   modules: {
   },

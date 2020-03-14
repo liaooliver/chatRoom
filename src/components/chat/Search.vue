@@ -5,8 +5,8 @@
       :placeholder="$t('_search')"
       v-model="filterString"
       @keydown.enter="filtered_post()">
-      <span>1{{ $t("_item") }}</span>
-      <span>
+      <span>{{ counterResult }}{{ $t("_item") }}</span>
+      <span @click="clearFilter()">
         <img width="26px" src="../../assets/img/ic_close1.png" alt="close" srcset="">
       </span>
     </div>
@@ -20,6 +20,11 @@ export default {
       type: Boolean,
       required: true,
     },
+    counterResult: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -28,7 +33,11 @@ export default {
   },
   methods: {
     filtered_post() {
-      console.log(this.filterString);
+      this.$emit('filterKeyword', this.filterString);
+    },
+    clearFilter() {
+      this.filterString = '';
+      this.$emit('initDialogue');
     },
   },
 };
