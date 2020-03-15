@@ -1,0 +1,102 @@
+@import '../variable.scss';
+.memo{
+    position: absolute;
+    width: 350px;
+    max-height: 470px;
+    overflow: auto;
+    background-color: #fff;
+    z-index: 6;
+    border-radius: 5px;
+    right: 1%;
+    top: 90px;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    box-sizing: border-box;
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     width: 30px;
+    //     height: 30px;
+    //     background-color: #fff;
+    //     transform: rotate(45deg);
+    //     top: -15px;
+    //     right: 24px;
+    //     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+    // }
+    // &::after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50px;
+    //     height: 25px;
+    //     background-color: #fff;
+    //     right: 13px;
+    //     top: 0;
+    // }
+    &__add{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        textarea {
+            height: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
+            &:focus{
+                border-color: lightskyblue;
+            }
+        }
+
+        button {
+            margin-top: 10px;
+            height: 30px;
+            border: none;
+        }
+
+        &--pass {
+            color: #fff;
+            background-color: $mainColor;
+        }
+
+        &--disabled {
+            color: #fff;
+            background-color: $secondColor;
+        }
+    }
+    &__sepline{
+        margin: 15px 0px;
+        border: 1px solid $secondColor;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    &__item{
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid $secondColor;
+        overflow: auto;
+        &--date{
+            color: $mainColor;
+        }
+        &--log{}
+        & ~ li {
+            margin-top: 8px;
+        }
+        & p:first-child{
+            margin-bottom: 10px;
+        }
+
+        span {
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            top: 8px;
+            cursor: pointer;
+        }
+    }
+}

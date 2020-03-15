@@ -38,7 +38,6 @@ export default {
         search: false,
         note: false,
       },
-      // imageUrl: 'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Prescription02&hairColor=BlondeGolden&facialHairType=BeardMedium&facialHairColor=Black&clotheType=ShirtCrewNeck&clotheColor=White&eyeType=Happy&eyebrowType=UpDownNatural&mouthType=Tongue&skinColor=Brown',
     };
   },
   methods: {
@@ -51,6 +50,7 @@ export default {
         this.actived[value] = true;
       }
       this.$emit('openSearch', this.actived.search);
+      this.$emit('openMemo', this.actived.note);
     },
   },
 };

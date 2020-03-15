@@ -1,15 +1,22 @@
 <template>
     <div class="chat">
-        <User
-        @openSearch="openSearch($event)"
-        :current="currentDialogue[0]" />
-        <Search
-        @filterKeyword="filterKeyword($event)"
-        @initDialogue="initDialogue($route.params.user)"
-        :counterResult="counterResult"
-        :isHiddenSearch="isHiddenSearch"></Search>
-        <Dialogue :dialogue="dialogue"></Dialogue>
-        <Send></Send>
+      <User
+      @openSearch="openSearch($event)"
+      @openMemo="openMemo($event)"
+      :current="currentDialogue[0]" />
+      <Search
+      @filterKeyword="filterKeyword($event)"
+      @initDialogue="initDialogue($route.params.user)"
+      :counterResult="counterResult"
+      :isHiddenSearch="isHiddenSearch"></Search>
+      <Dialogue :dialogue="dialogue"></Dialogue>
+      <Send></Send>
+      <Arrow
+      :display="isDispalyMemo"></Arrow>
+      <Memo
+      :display="isDispalyMemo"
+      :memos="memos"
+      :index="$route.params.user"></Memo>
     </div>
 </template>
 
@@ -18,6 +25,8 @@ import User from '../components/chat/User.vue';
 import Search from '../components/chat/Search.vue';
 import Dialogue from '../components/chat/Dialogue.vue';
 import Send from '../components/chat/Send.vue';
+import Memo from '../components/memo/Memo.vue';
+import Arrow from '../components/memo/Arrow.vue';
 
 export default {
   components: {
@@ -25,10 +34,14 @@ export default {
     Search,
     Dialogue,
     Send,
+    Memo,
+    Arrow,
   },
   watch: {
     '$route.params.user': {
       handler(index) {
+        this.isDispalyMemo = false;
+        this.isHiddenSearch = true;
         this.initDialogue(index);
       },
       deep: true,
@@ -42,20 +55,25 @@ export default {
   },
   data() {
     return {
-      isHiddenSearch: true,
       currentDialogue: null,
       dialogue: null,
+      memos: null,
+      isDispalyMemo: false,
+      isHiddenSearch: true,
     };
   },
   methods: {
     openSearch(event) {
       this.isHiddenSearch = !event;
     },
+    openMemo(event) {
+      this.isDispalyMemo = event;
+    },
     initDialogue(index) {
-      console.log('執行了');
       this.$store.dispatch('resetCounter');
       this.currentDialogue = this.$store.getters.filterFirends(index);
       this.dialogue = this.currentDialogue[0].dialogue;
+      this.memos = this.currentDialogue[0].memo;
     },
     filterKeyword(event) {
       this.$store.dispatch('resetCounter');

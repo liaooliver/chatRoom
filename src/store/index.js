@@ -18,6 +18,16 @@ export default new Vuex.Store({
           '我喜歡吃的食物有',
           '各種巧克力口味的甜點',
         ],
+        memo: [
+          {
+            date: '2019/07/01 13:45',
+            content: '備忘訊息1',
+          },
+          {
+            date: '2019/07/01 14:45',
+            content: '備忘訊息1',
+          },
+        ],
       },
       {
         index: 2,
@@ -29,6 +39,16 @@ export default new Vuex.Store({
           '你好, 我是傑西卡',
           '我喜歡做的運動為',
           '游泳,跑步',
+        ],
+        memo: [
+          {
+            date: '2019/07/01 13:45',
+            content: '備忘訊息1',
+          },
+          {
+            date: '2019/07/01 14:45',
+            content: '備忘訊息1',
+          },
         ],
       },
       {
@@ -42,6 +62,16 @@ export default new Vuex.Store({
           '我喜歡的動物為',
           '貓,狗',
         ],
+        memo: [
+          {
+            date: '2019/07/01 13:45',
+            content: '備忘訊息1',
+          },
+          {
+            date: '2019/07/01 14:45',
+            content: '備忘訊息1',
+          },
+        ],
       },
     ],
   },
@@ -49,10 +79,37 @@ export default new Vuex.Store({
     resetCounter(state) {
       state.count = 0;
     },
+    addNewMemo(state, payload) {
+      const key = 'index';
+      const memo = 'memo';
+      const index = parseInt(payload[key], 10);
+      state.firendsList.forEach((firend) => {
+        if (firend[key] === index) {
+          firend[memo].push(payload[memo]);
+        }
+      });
+    },
+    deleteMemo(state, payload) {
+      const key = 'index';
+      const memo = 'memo';
+      const index = parseInt(payload[key], 10);
+      state.firendsList.forEach((firend) => {
+        if (firend[key] === index) {
+          const deleteIndex = firend[memo].indexOf(payload[memo]);
+          firend[memo].splice(deleteIndex, 1);
+        }
+      });
+    },
   },
   actions: {
     resetCounter(context) {
       context.commit('resetCounter');
+    },
+    addNewMemo(context, payload) {
+      context.commit('addNewMemo', payload);
+    },
+    deleteMemo(context, payload) {
+      context.commit('deleteMemo', payload);
     },
   },
   getters: {
@@ -67,7 +124,6 @@ export default new Vuex.Store({
       const match = dia.match(regex);
       if (match) {
         getters.counterResult(match);
-        console.log('match:', match);
         return dia.replace(regex, `<span class='chat__dialogue--highlight'>${match[0]}</span>`);
       }
       return dia;
