@@ -1,4 +1,4 @@
-# ch
+# cherri
 
 ## Project setup
 ```
