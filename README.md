@@ -1,4 +1,4 @@
-# chreei
+# ch
 
 ## Project setup
 ```
