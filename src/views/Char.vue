@@ -1,16 +1,21 @@
 <template>
     <div class="chat">
+      <!-- user row -->
       <User
       @openSearch="openSearch($event)"
       @openMemo="openMemo($event)"
       :current="currentDialogue[0]" />
+      <!-- search row -->
       <Search
       @filterKeyword="filterKeyword($event)"
       @initDialogue="initDialogue($route.params.user)"
       :counterResult="counterResult"
       :isHiddenSearch="isHiddenSearch"></Search>
+      <!-- Dialogue area -->
       <Dialogue :dialogue="dialogue"></Dialogue>
+      <!-- message send -->
       <Send></Send>
+      <!-- memo popup -->
       <Arrow
       :display="isDispalyMemo"></Arrow>
       <Memo
@@ -75,9 +80,11 @@ export default {
       this.dialogue = this.currentDialogue[0].dialogue;
       this.memos = this.currentDialogue[0].memo;
     },
+    // 篩選關鍵字
     filterKeyword(event) {
       this.$store.dispatch('resetCounter');
       const index = 0;
+      // 在 Vuex 處理搜尋關鍵字邏輯
       const filter = this.$store.getters.filterString(event, this.$route.params.user);
       this.dialogue = filter[index];
     },

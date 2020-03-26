@@ -116,6 +116,7 @@ export default new Vuex.Store({
     filterFirends: (state) => (index) => state.firendsList.filter(
       (item) => item.index === parseInt(index, 10),
     ),
+    // 篩選關鍵字
     filterString: (state, getters) => (keyword, index) => state.firendsList.filter(
       (item) => item.index === parseInt(index, 10),
     ).map((item) => item.dialogue.map((dia) => {
@@ -128,6 +129,7 @@ export default new Vuex.Store({
       }
       return dia;
     })),
+    // 相符數量
     counterResult: (state) => (match) => {
       if (match) state.count += 1;
       return state.count;

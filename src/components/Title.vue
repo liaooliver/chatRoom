@@ -1,7 +1,9 @@
 <template>
     <div class="title">
+      <!-- 目前的使用者 -->
         <div class="title__header">
             <router-link tag="p" to="/" class="title__header--logo">Cherri Chat</router-link>
+            <!-- toggle lang -->
             <Button
             @toggleLang="toggleLang($event)"
             :actived="this.currentLang.tw">中文</Button>
@@ -9,6 +11,7 @@
             @toggleLang="toggleLang($event)"
             :actived="this.currentLang.en">English</Button>
         </div>
+        <!-- user account info -->
         <div class="title__user">
             <Avatar :image="imageUrl" />
             <p class="title__user--name">潔西卡</p>

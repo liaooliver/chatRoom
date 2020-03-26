@@ -1,4 +1,5 @@
 <template>
+  <!-- 側邊欄位的項目 -->
   <ul class="sideBar__items">
     <router-link tag="li" class="sideBar__item sideBar__item--style"
     v-for="item in firendsList"

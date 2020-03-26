@@ -1,4 +1,5 @@
 <template>
+  <!-- people number -->
   <div class="sideBar__title sideBar__title--name">
     {{ $t("_friends") }}({{this.number.length}})
   </div>

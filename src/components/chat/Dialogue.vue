@@ -1,5 +1,6 @@
 <template>
     <div class="chat__dialogue">
+      <!-- 透過上層傳遞資料到對話框渲染資料 -->
         <div
         v-for="(log, index) in dialogue"
         :key="index"

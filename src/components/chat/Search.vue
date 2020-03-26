@@ -1,15 +1,18 @@
 <template>
-    <div class="chat__search chat__rowHeight"
-    :class="{'chat__hidden':isHiddenSearch}">
-      <input type="text" autofocus
-      :placeholder="$t('_search')"
-      v-model="filterString"
-      @keydown.enter="filtered_post()">
-      <span>{{ counterResult }}{{ $t("_item") }}</span>
-      <span @click="clearFilter()">
-        <img width="26px" src="../../assets/img/ic_close1.png" alt="close" srcset="">
-      </span>
-    </div>
+  <!-- 搜尋欄位 -->
+  <div class="chat__search chat__rowHeight"
+  :class="{'chat__hidden':isHiddenSearch}">
+    <input type="text" autofocus
+    :placeholder="$t('_search')"
+    v-model="filterString"
+    @keydown.enter="filtered_post()">
+    <!-- 自動響應相符數量 -->
+    <span>{{ counterResult }}{{ $t("_item") }}</span>
+    <!-- 清除 -->
+    <span @click="clearFilter()">
+      <img width="26px" src="../../assets/img/ic_close1.png" alt="close" srcset="">
+    </span>
+  </div>
 </template>
 
 <script>
