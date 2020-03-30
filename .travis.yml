@@ -5,9 +5,8 @@ node_js:
 
 deploy:
   provider: s3
-  access_key_id: AKIAIWCFCGIDSHKS5BSQ
-  secret_access_key:
-    secure: kuAU4yRxLeWHp2Ga2LJpw+eefhdNWuWkGoLgcDh4rDAsrIV5YsEEwSZBbUjKupSbd7H/Fty/9/qgQ2iYHLWGK96wy6QaTsdjwMnafhDdjPyo+shkOgA07AAVzwMf3yJGFXXWB8CS7F/4fhms3Sy7Q1UyldXW+4XwyjPsv8AuIN/hnABvV23V3uG167TCwoiuu10sl6oviFC3+1HZ+xoY++Li9vqB8OPIR19u/YlEUen3hRpPjMLDvOkEAGz15mHXv1BG0ykBhoQnerLgwLZa4ftatqhuIHeQdDTRFlKhgVjNWj5fp2RdznF0EZpDuK/b4YP+0AG7atH6kcP3qULDTa5IMk8/JhYEg9fDEBjNZrAYLJE+KNOHCcJ7tpKKWLLw96c+fNVAqQZO51VVBOOeWP+kibQ9KV0sQxOPxIOnaa1dMcVEVn/vuzJFSEWZjU0v6A3b1mWpSKm/2YVWcNDlz5V8EsSRVtFH9/3n8riSABPamPfgpG92LnxpK6tWyIhPISlrlTMpXzwNSCVpCwyC6KUXrDB+h6PuSjX4/CbEeYnCsRMalEoxp8I1ftQu7Gz1kXnSHQ8Q7FanfAqf1MKYs6WShinIPvzcAqrazVGNfmvrOoX35zdRAWASfNGs+Fb0CmmSFpL0trJz5dZHfbJ+QrusD4n2c8AcOjC0BJTPENA=
+  access_key_id: $aws_id
+  secret_access_key: $aws_key
   bucket: S3 Bucket
   skip_cleanup: true
   region: Asia Pacific (Singapore) ap-southeast-1
