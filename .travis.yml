@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - 12
+  - 11
+
+deploy:
+  provider: s3
+  access_key_id: "AKIAIWNCYS7BVC634Z5A"
+  secret_access_key: "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"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
