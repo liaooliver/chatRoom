@@ -7,6 +7,6 @@ deploy:
   provider: s3
   access_key_id: $aws_id
   secret_access_key: $aws_key
-  bucket: S3 Bucket
+  bucket: cherrichat
   skip_cleanup: true
   region: Asia Pacific (Singapore) ap-southeast-1
