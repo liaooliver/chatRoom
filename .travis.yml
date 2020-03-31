@@ -3,6 +3,9 @@ node_js:
 - 12
 - 11
 
+install:
+  - npm install
+
 # deploy:
 #   provider: pages
 #   skip-cleanup: true
