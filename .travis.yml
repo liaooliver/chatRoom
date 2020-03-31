@@ -3,11 +3,11 @@ node_js:
 - 12
 - 11
 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  local-dir: public
-  repo: liaooliver/HomeWork
-  target_branch: master
+# deploy:
+#   provider: pages
+#   skip-cleanup: true
+#   github-token: $GITHUB_TOKEN
+#   local-dir: public
+#   repo: liaooliver/HomeWork
+#   target_branch: master
 
