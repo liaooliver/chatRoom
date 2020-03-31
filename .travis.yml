@@ -4,9 +4,10 @@ node_js:
 - 11
 
 deploy:
-  provider: s3
-  access_key_id: $aws_id
-  secret_access_key: $aws_key
-  bucket: "cherrichat"
-  skip_cleanup: true
-  region: "Asia Pacific (Singapore) ap-southeast-1"
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: public
+  repo: liaooliver/HomeWorl
+  target_branch: master
+
