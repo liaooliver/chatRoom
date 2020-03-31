@@ -13,7 +13,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local-dir: public
+  local-dir: disu
   repo: liaooliver/deploy
   target_branch: master
 
