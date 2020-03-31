@@ -3,11 +3,6 @@ node_js:
 - 12
 - 11
 
-install:
-    - npm install
-script:
-    - npm run build
-
 deploy:
   provider: pages
   skip-cleanup: true
