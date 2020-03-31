@@ -8,6 +8,6 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   local-dir: public
-  repo: liaooliver/HomeWorl
+  repo: liaooliver/HomeWork
   target_branch: master
 
