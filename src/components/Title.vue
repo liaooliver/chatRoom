@@ -3,7 +3,7 @@
       <!-- 目前的使用者 -->
         <div class="title__header">
             <router-link tag="p" to="/" class="title__header--logo">
-              CICD success deploy
+              Change Bucket Policy
             </router-link>
             <!-- toggle lang -->
             <Button
