@@ -2,9 +2,9 @@ language: node_js
 node_js:
 - 12
 
-install:
-  - npm install
-script:
+# install:
+#   - npm install
+before_deploy:
   - npm run build
 
 deploy:
@@ -14,7 +14,7 @@ deploy:
   bucket: "cherrichat"
   skip_cleanup: true
   region: "ap-southeast-1"
-  
+
 # deploy:
 #   provider: pages
 #   skip_cleanup: true
