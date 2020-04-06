@@ -16,6 +16,7 @@ deploy:
   region: "ap-southeast-1"
   local_dir: dist
 
+
 # deploy:
 #   provider: pages
 #   skip_cleanup: true

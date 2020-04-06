@@ -2,7 +2,9 @@
     <div class="title">
       <!-- 目前的使用者 -->
         <div class="title__header">
-            <router-link tag="p" to="/" class="title__header--logo">Cherri Chat - CICD</router-link>
+            <router-link tag="p" to="/" class="title__header--logo">
+              CICD success deploy
+            </router-link>
             <!-- toggle lang -->
             <Button
             @toggleLang="toggleLang($event)"
