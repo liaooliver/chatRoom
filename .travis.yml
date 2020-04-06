@@ -1,7 +1,6 @@
 language: node_js
 node_js:
 - 12
-- 11
 
 install:
   - npm install
@@ -9,10 +8,17 @@ script:
   - npm run build
 
 deploy:
-  provider: pages
+  provider: s3
+  access_key_id: $pub_id
+  secret_access_key: $priv_key
+  bucket: "cherrichat"
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist
-  repo: liaooliver/deploy
-  target_branch: master
-
+  region: "ap-southeast-1"
+  
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: $GITHUB_TOKEN
+#   local_dir: dist
+#   repo: liaooliver/deploy
+#   target_branch: master

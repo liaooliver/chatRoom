@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+.memo {
+  position: absolute;
+  width: 350px;
+  max-height: 470px;
+  overflow: auto;
+  background-color: #fff;
+  z-index: 6;
+  border-radius: 5px;
+  right: 1%;
+  top: 90px;
+  -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.memo__add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.memo__add textarea {
+  height: 100px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  resize: none;
+}
+
+.memo__add textarea:focus {
+  border-color: lightskyblue;
+}
+
+.memo__add button {
+  margin-top: 10px;
+  height: 30px;
+  border: none;
+}
+
+.memo__add--pass {
+  color: #fff;
+  background-color: #4A90E2;
+}
+
+.memo__add--disabled {
+  color: #fff;
+  background-color: #D5D9DE;
+}
+
+.memo__sepline {
+  margin: 15px 0px;
+  border: 1px solid #D5D9DE;
+}
+
+.memo__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.memo__item {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #D5D9DE;
+  overflow: auto;
+}
+
+.memo__item--date {
+  color: #4A90E2;
+}
+
+.memo__item ~ li {
+  margin-top: 8px;
+}
+
+.memo__item p:first-child {
+  margin-bottom: 10px;
+}
+
+.memo__item span {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=memo.css.map */
